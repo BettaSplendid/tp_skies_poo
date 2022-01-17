@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 
-final class airport
+final class Airport
 {
 
     /**

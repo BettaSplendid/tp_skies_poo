@@ -14,11 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
 final class Reservation
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
-    private int $reservation_number;
+    private int $id_reservation;
 
     /**
      * Get the value of reservation_number
@@ -33,9 +34,9 @@ final class Reservation
      *
      * @return  self
      */
-    public function setReservation_number($reservation_number)
+    public function setReservation_number($id_reservation)
     {
-        $this->reservation_number = $reservation_number;
+        $this->reservation_number = $id_reservation;
 
         return $this;
     }
@@ -66,15 +67,15 @@ final class Reservation
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="$user_id")
+     * @ORM\ManyToOne(targetEntity="User")d
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
-    private User $user_id;
+    private User $id;
 
-    public function __construct(int $reservation_number, \datetime $Reservation_date, User $user_id)
+    public function __construct(int $id_reservation, \datetime $Reservation_date, User $id)
     {
-        $this->reservation_number = $reservation_number;
+        $this->reservation_number = $id;
         $this->Reservation_date = $Reservation_date;
-        $this->user_id = $user_id;
+        $this->id = $id;
     }
 }

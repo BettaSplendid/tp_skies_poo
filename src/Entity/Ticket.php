@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 
-final class ticket
+final class Ticket
 {
 
     /**
@@ -54,15 +54,15 @@ final class ticket
 
     /**
      * @ORM\ManyToOne(targetEntity="Reservation")
-     * @ORM\JoinColumn(name="id", referencedColumnName="$id")
+     * @ORM\JoinColumn(name="id_reservation", referencedColumnName="id_reservation")
      */
-    private Reservation $reservation_number;
+    private Reservation $id;
 
 
-    public function __construct(int $ticket_id, int $passport_id, Reservation $reservation_number )
+    public function __construct(int $ticket_id, int $passport_id, Reservation $id_reservation )
     {
         $this->ticket_id = $ticket_id;
         $this->passport_id = $passport_id;
-        $this->reservation_number = $reservation_number;
+        $this->reservation_number = $id_reservation;
     }
 }

@@ -8,11 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"id"})})
  */
 
 
-final class user
+final class User
 {
 
     /**
@@ -20,7 +19,7 @@ final class user
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $user_id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string")
@@ -46,18 +45,18 @@ final class user
      *
      * @return  self
      */ 
-    public function setid($user_id)
+    public function setid($id)
     {
-        $this->id = $user_id;
+        $this->id = $id;
 
         return $this;
     }
 
 
-    public function __construct(int $user_id, string $firstname, string $lastname)
+    public function __construct(int $id, string $firstname, string $lastname)
     {
 
-        $this->id = $user_id;
+        $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
     }

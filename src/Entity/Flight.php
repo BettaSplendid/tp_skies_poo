@@ -11,16 +11,29 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 
-final class flight
+final class Flight
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Idx
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $flight_id;
+    private int $stopover_id;
 
+    /**
+     * 
+     * @ORM\Column(type ="datetime")
+     */
+    private \DateTime $takeoff_time ;
+
+    /**
+     * 
+     * @ORM\Column(type ="datetime")
+     */
+    private \DateTime $landing_time ;
+
+    
 
 
     /**
@@ -44,8 +57,24 @@ final class flight
         return $this;
     }
 
-    public function __construct(int $flight_id)
+    /**
+     * @ORM\ManyToOne(targetEntity="Airport")
+     * @ORM\JoinColumn(name="id_departure", referencedColumnName="airport_id")
+     */
+    private Airport $id_departure;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Airport")
+     * @ORM\JoinColumn(name="id_arrival", referencedColumnName="airport_id")
+     */
+    private Airport $id_arrival;
+
+    public function __construct(int $flight_id, Airport $id_departure, Airport $id_arrival, \DateTime $takeoff_time, \DateTime $landing_time)
     {
         $this->flight_id = $flight_id;
+        $this->id_departure = $id_departure;
+        $this->id_arrival = $id_arrival;
+        $this->takeoff_time = $takeoff_time;
+        $this->landing_time = $landing_time;
     }
 }
