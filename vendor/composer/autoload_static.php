@@ -19,10 +19,6 @@ class ComposerStaticInit3aef2be43af0a4976c026112c3b73a89
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
-        array (
-            'Test\\TestTpSkies\\' => 17,
-        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -61,13 +57,13 @@ class ComposerStaticInit3aef2be43af0a4976c026112c3b73a89
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Test\\TestTpSkies\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
@@ -185,6 +181,10 @@ class ComposerStaticInit3aef2be43af0a4976c026112c3b73a89
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

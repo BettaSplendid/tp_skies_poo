@@ -11,15 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 
-final class User
+class User
 {
-
+    use \App\Traits\Nationality;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private int $user_id;
 
     /**
      * @ORM\Column(type="string")
@@ -37,7 +37,7 @@ final class User
      */ 
     public function getid()
     {
-        return $this->id;
+        return $this->user_id;
     }
 
     /**
@@ -45,20 +45,21 @@ final class User
      *
      * @return  self
      */ 
-    public function setid($id)
+    public function setid($user_id)
     {
-        $this->id = $id;
+        $this->user_id = $user_id;
 
         return $this;
     }
 
 
-    public function __construct(int $id, string $firstname, string $lastname)
+    public function __construct(int $user_id, string $firstname, string $lastname, string $user_country)
     {
 
-        $this->id = $id;
+        $this->user_id = $user_id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
+        $this->setCountry($user_country);
     }
 
 }

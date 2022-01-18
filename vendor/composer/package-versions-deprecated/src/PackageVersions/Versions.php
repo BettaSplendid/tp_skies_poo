@@ -64,7 +64,7 @@ final class Versions
   'symfony/string' => 'v5.4.2@e6a5d5ecf6589c5247d18e0e74e30b11dfd51a3d',
   'symfony/var-exporter' => 'v5.4.2@2360c8525815b8535caac27cbc1994e2fa8644ba',
   'symfony/yaml' => 'v5.4.2@b9eb163846a61bb32dfc147f7859e274fab38b58',
-  'test/test_tp_skies' => '1.0.0+no-version-set@',
+  'test/test_tp_skies' => 'dev-master@d4e670ece3375abd5bee9e298cfeee7d616fb3ca',
 );
 
     private function __construct()

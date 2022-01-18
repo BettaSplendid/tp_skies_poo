@@ -64,6 +64,7 @@ final class Ticket
         $this->ticket_id = $ticket_id;
         $this->passport_id = $passport_id;
         $this->reservation_number = $id_reservation;
+        $this->prix_ticket_passager();
     }
 
     public function prix_ticket_passager(){

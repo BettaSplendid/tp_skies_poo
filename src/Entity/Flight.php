@@ -19,7 +19,7 @@ final class Flight
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $stopover_id;
+    private int $flight_id;
 
     /**
      * 
@@ -58,21 +58,21 @@ final class Flight
 
     /**
      * @ORM\ManyToOne(targetEntity="Airport")
-     * @ORM\JoinColumn(name="id_departure", referencedColumnName="airport_id")
+     * @ORM\JoinColumn(name="departure_airport_id", referencedColumnName="airport_id")
      */
-    private Airport $id_departure;
+    private Airport $departure_airport_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Airport")
-     * @ORM\JoinColumn(name="id_arrival", referencedColumnName="airport_id")
+     * @ORM\JoinColumn(name="destination_airport_id", referencedColumnName="airport_id")
      */
-    private Airport $id_arrival;
+    private Airport $destination_airport_id;
 
-    public function __construct(int $flight_id, Airport $id_departure, Airport $id_arrival, \DateTime $takeoff_time, \DateTime $landing_time, bool $bookable)
+    public function __construct(int $flight_id, Airport $departure_airport_id, Airport $destination_airport_id, \DateTime $takeoff_time, \DateTime $landing_time, bool $bookable)
     {
         $this->flight_id = $flight_id;
-        $this->id_departure = $id_departure;
-        $this->id_arrival = $id_arrival;
+        $this->departure_airport_id = $departure_airport_id;
+        $this->destination_airport_id = $destination_airport_id;
         $this->takeoff_time = $takeoff_time;
         $this->landing_time = $landing_time;
         $this->bookable = $bookable;

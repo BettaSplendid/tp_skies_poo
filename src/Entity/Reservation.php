@@ -67,15 +67,16 @@ final class Reservation
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")d
-     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
-    private User $id;
+    private User $user_id;
 
-    public function __construct(int $id_reservation, \datetime $Reservation_date, User $id)
+
+    public function __construct(int $id_reservation, \datetime $Reservation_date, User $user_id)
     {
-        $this->reservation_number = $id;
+        $this->reservation_number = $id_reservation;
         $this->Reservation_date = $Reservation_date;
-        $this->id = $id;
+        $this->user_id = $user_id;
     }
 }

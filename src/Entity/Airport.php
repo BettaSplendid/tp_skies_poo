@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 final class Airport
 {
+    use \App\Traits\Nationality;
 
     /**
      * @ORM\Id
@@ -24,11 +25,11 @@ final class Airport
     /**
      * @ORM\Column(type="string")
      */
-    private string $place;
+    private string $airport_name;
 
     /**
      * Get the value of airport_id
-     */ 
+     */
     public function getAirport_id()
     {
         return $this->airport_id;
@@ -38,7 +39,7 @@ final class Airport
      * Set the value of airport_id
      *
      * @return  self
-     */ 
+     */
     public function setAirport_id($airport_id)
     {
         $this->airport_id = $airport_id;
@@ -46,8 +47,10 @@ final class Airport
         return $this;
     }
 
-    public function __construct(int $airport_id)
+    public function __construct(int $airport_id, string $country, string $airport_name)
     {
         $this->airport_id = $airport_id;
+        $this->airport_name = $airport_name;
+        $this->setCountry($country);
     }
 }
