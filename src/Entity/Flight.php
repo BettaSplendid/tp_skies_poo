@@ -15,7 +15,7 @@ final class Flight
 {
 
     /**
-     * @ORM\Idx
+     * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
@@ -25,15 +25,14 @@ final class Flight
      * 
      * @ORM\Column(type ="datetime")
      */
-    private \DateTime $takeoff_time ;
+    private \DateTime $takeoff_time;
 
     /**
      * 
      * @ORM\Column(type ="datetime")
      */
-    private \DateTime $landing_time ;
+    private \DateTime $landing_time;
 
-    
 
 
     /**
@@ -69,12 +68,31 @@ final class Flight
      */
     private Airport $id_arrival;
 
-    public function __construct(int $flight_id, Airport $id_departure, Airport $id_arrival, \DateTime $takeoff_time, \DateTime $landing_time)
+    public function __construct(int $flight_id, Airport $id_departure, Airport $id_arrival, \DateTime $takeoff_time, \DateTime $landing_time, bool $bookable)
     {
         $this->flight_id = $flight_id;
         $this->id_departure = $id_departure;
         $this->id_arrival = $id_arrival;
         $this->takeoff_time = $takeoff_time;
         $this->landing_time = $landing_time;
+        $this->bookable = $bookable;
+    }
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $bookable;
+
+
+    /**
+     * Set the value of bookable
+     *
+     * @return  self
+     */
+    public function setBookable($bookable)
+    {
+        $this->bookable = $bookable;
+
+        return $this;
     }
 }

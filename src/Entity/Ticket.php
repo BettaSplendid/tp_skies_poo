@@ -65,4 +65,8 @@ final class Ticket
         $this->passport_id = $passport_id;
         $this->reservation_number = $id_reservation;
     }
+
+    public function prix_ticket_passager(){
+        $this->price = rand();
+    }
 }
