@@ -13,11 +13,16 @@ use Doctrine\ORM\EntityManager;
 
 class AppController
 {
+    public static function getEM()
+    {
+        require "bootstrap.php";
+        return $entityManager;
+    }
     public static function index()
     {
         echo "<br>blablaba<br><br>";
 
-        $entityManager = EntityManager::create();
+        $entityManager = self::getEM();
 
         $papy = new User(5655656, "Papy", "Papou", "France");
 
