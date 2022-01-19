@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '22cb09468d86f4d7812292b3dc1b13e031a20aed',
         'name' => 'test/test_tp_skies',
         'dev' => true,
     ),
     'versions' => array(
-        'composer/package-versions-deprecated' => array(
-            'pretty_version' => '1.11.99.4',
-            'version' => '1.11.99.4',
-            'type' => 'composer-plugin',
-            'install_path' => __DIR__ . '/./package-versions-deprecated',
-            'aliases' => array(),
-            'reference' => 'b174585d1fe49ceed21928a945138948cb394600',
-            'dev_requirement' => false,
-        ),
         'doctrine/annotations' => array(
             'pretty_version' => '1.13.2',
             'version' => '1.13.2.0',
@@ -56,12 +47,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.2.1',
-            'version' => '3.2.1.0',
+            'pretty_version' => '3.3.0',
+            'version' => '3.3.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
-            'reference' => '4caf37acf14b513a91dd4f087f7eda424fa25542',
+            'reference' => 'a4b37db6f186b6843474189b424aed6a7cc5de4b',
             'dev_requirement' => false,
         ),
         'doctrine/deprecations' => array(
@@ -126,12 +117,6 @@
             'aliases' => array(),
             'reference' => 'f8af155c1e7963f3d2b4415097d55757bbaa53d8',
             'dev_requirement' => false,
-        ),
-        'ocramius/package-versions' => array(
-            'dev_requirement' => false,
-            'replaced' => array(
-                0 => '1.11.99',
-            ),
         ),
         'psr/cache' => array(
             'pretty_version' => '1.0.1',
@@ -320,12 +305,12 @@
             'dev_requirement' => false,
         ),
         'test/test_tp_skies' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '22cb09468d86f4d7812292b3dc1b13e031a20aed',
             'dev_requirement' => false,
         ),
     ),
