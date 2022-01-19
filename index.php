@@ -20,11 +20,9 @@ $current_url = $_SERVER['REQUEST_URI'];
 // var_dump($url);
 
 
-$routeurRouteur = new Routeur();
+$routeurRouteur = new Routeur($current_url);
 
 
-$test = new La_Route("aaaa");
-
-$routeurRouteur->add_une_route_bb_get($test);
+// $routeurRouteur->add_une_route_bb_get($test);
 
 var_dump($routeurRouteur);

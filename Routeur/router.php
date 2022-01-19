@@ -14,12 +14,19 @@ require "bootstrap.php";
 final class Routeur
 {
     public $listes_des_routes = [];
+    public $url;
+
+    public function __construct($url)
+    {
+        $this->url = $url;
+    }
 
     // public La_Route $route;
 
-    public function add_une_route_bb_get(La_Route $route)
+    public function add_une_route_bb_get($chemin, $methode)
     {
-        $this->listes_des_routes = $route;
+        $this->listes_des_routes['GET'][] = new La_Route($chemin, $methode);
+        // $this->La_Route[]
     }
 
     // public function add_une_route_bb_post()
@@ -34,41 +41,52 @@ final class Routeur
 
     public function check_match($listes_des_routes)
     {
-        foreach ($listes_des_routes as $key => $value) {
+        foreach ($this->$listes_des_routes as $route) {
+            if ($route->matches($this->url))
+                $route->execute();
             # If route is cool
-            // redirect($result)
+            // redirect($result)j
         }
+
+        return;
     }
 }
 
 class La_Route
 {
-    public $la_le_url;
+    public $chemin;
+    public $methode;
+
     public int $id_de_la_route;
 
-    public function __construct(string $url)
+    public function __construct(string $chemin, $methode)
     {
-        $this->la_le_url = $url;
+        $this->chemin = trim($chemin);
+        $this->methode = trim($methode);
         $this->id_de_la_route = rand();
     }
 
+    public function matches()
+    {
+    }
+
 
     /**
-     * Get the value of la_le_url
+     * Get the value of chemin
      */
-    public function getLa_le_url()
+    public function getchemin()
     {
-        return $this->la_le_url;
+        return $this->chemin;
     }
 
     /**
-     * Set the value of la_le_url
+     * Set the value of chemin
      *
      * @return  self
      */
-    public function setLa_le_url($la_le_url)
+    public function setchemin($chemin)
     {
-        $this->la_le_url = $la_le_url;
+        $this->chemin = $chemin;
 
         return $this;
     }
