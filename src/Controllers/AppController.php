@@ -20,41 +20,43 @@ class AppController
     }
     public static function index()
     {
-        echo "<br>blablaba<br><br>";
 
-        $entityManager = self::getEM();
+        echo "<br>App Controller<br>";
+        // echo "<br>blablaba<br><br>";
 
-        $papy = new User(5655656, "Papy", "Papou", "France");
+        // $entityManager = self::getEM();
 
-        $paris_brest = new Reservation(595566, new DateTime(), $papy);
+        // $papy = new User(5655656, "Papy", "Papou", "France");
 
-        $ticket_brest = new Ticket(595656, 559565, $paris_brest);
+        // $paris_brest = new Reservation(595566, new DateTime(), $papy);
 
-        $paris_airport = new Airport(45455, "Ile de Frabce", "Paris cdg");
+        // $ticket_brest = new Ticket(595656, 559565, $paris_brest);
 
-        $brest_airport = new Airport(56656, "Bregange", "Paspasparis");
+        // $paris_airport = new Airport(45455, "Ile de Frabce", "Paris cdg");
 
-        $vol_paris_brest = new Flight(58972, $paris_airport, $brest_airport, (new DateTime()), (new DateTime()), true);
+        // $brest_airport = new Airport(56656, "Bregange", "Paspasparis");
 
-        $entityManager->persist($vol_paris_brest);
-        $entityManager->persist($paris_airport);
-        $entityManager->persist($brest_airport);
-        $entityManager->persist($paris_brest);
-        $entityManager->persist($ticket_brest);
-        $entityManager->persist($papy);
-        $entityManager->flush();
+        // $vol_paris_brest = new Flight(58972, $paris_airport, $brest_airport, (new DateTime()), (new DateTime()), true);
 
-        var_dump($papy);
-        echo "<br><br>blablaba<br><br>";
-        var_dump($paris_brest);
-        echo "<br><br>blablaba<br><br>";
-        var_dump($ticket_brest);
-        echo "<br><br>blablaba<br><br>";
-        var_dump($paris_airport);
-        echo "<br><br>blablaba<br><br>";
-        var_dump($brest_airport);
-        echo "<br><br>blablaba<br><br>";
-        var_dump($vol_paris_brest);
-        echo "<br><br>blablaba<br><br>";
+        // $entityManager->persist($vol_paris_brest);
+        // $entityManager->persist($paris_airport);
+        // $entityManager->persist($brest_airport);
+        // $entityManager->persist($paris_brest);
+        // $entityManager->persist($ticket_brest);
+        // $entityManager->persist($papy);
+        // $entityManager->flush();
+
+        // var_dump($papy);
+        // echo "<br><br>blablaba<br><br>";
+        // var_dump($paris_brest);
+        // echo "<br><br>blablaba<br><br>";
+        // var_dump($ticket_brest);
+        // echo "<br><br>blablaba<br><br>";
+        // var_dump($paris_airport);
+        // echo "<br><br>blablaba<br><br>";
+        // var_dump($brest_airport);
+        // echo "<br><br>blablaba<br><br>";
+        // var_dump($vol_paris_brest);
+        // echo "<br><br>blablaba<br><br>";
     }
 }

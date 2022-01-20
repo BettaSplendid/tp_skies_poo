@@ -13,63 +13,74 @@ require "bootstrap.php";
 
 final class Routeur
 {
-    public $listes_des_routes = [];
+
     public $url;
+    public $listes_des_routes = [];
 
     public function __construct($url)
     {
-        $this->url = $url;
+        $this->url = trim($url, '/');
     }
 
-    // public La_Route $route;
-
-    public function add_une_route_bb_get($chemin, $methode)
+    public function add_une_route_bb_get($chemin, $action)
     {
-        $this->listes_des_routes['GET'][] = new La_Route($chemin, $methode);
-        // $this->La_Route[]
+        $this->listes_des_routes['GET'][] = new Route($chemin, $action);
+        // $this->Route[]
+
     }
 
-    // public function add_une_route_bb_post()
-    // {
-    //     $this->listes_des_routes = new La_Route("aaaa");
-    // }
 
-    // public function add_une_route_bb_put()
-    // {
-    //     $this->listes_des_routes = new La_Route("aaaa");
-    // }
-
-    public function check_match($listes_des_routes)
+    public function run()
     {
-        foreach ($this->$listes_des_routes as $route) {
+        foreach ($this->listes_des_routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if ($route->matches($this->url))
                 $route->execute();
-            # If route is cool
-            // redirect($result)j
         }
 
-        return;
+        return header('HTTP/1.0 404 Pas trouvé');
     }
+
+
 }
 
-class La_Route
+class Route
 {
     public $chemin;
-    public $methode;
+    public $action;
+    public $matches;
 
     public int $id_de_la_route;
 
-    public function __construct(string $chemin, $methode)
+    public function __construct(string $chemin, $action)
     {
-        $this->chemin = trim($chemin);
-        $this->methode = trim($methode);
+        $this->chemin = trim($chemin, '/');
+        $this->action = trim($action);
         $this->id_de_la_route = rand();
     }
 
-    public function matches()
+    public function matches($url)
     {
+        $chemin = preg_replace('#:([\w]+)#', '([^/]+)', $this->chemin);
+        $cheminAVerifier = "#^$chemin$#";
+
+
+        if (preg_match($cheminAVerifier, $url, $matches)) {
+            $this->matches = $matches;
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    public function execute()
+    {
+        $params = explode('@', $this->action);
+        $controller = new $params[0]();
+        $methode = $params[1];
+
+        return isset($this->matches[1]) ? $controller->$methode($this->matches[1]) : $controller->$methode(); 
+
+    }
 
     /**
      * Get the value of chemin
