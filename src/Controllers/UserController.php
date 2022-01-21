@@ -1,9 +1,15 @@
 <?php
 
 namespace App\Controllers;
+require_once 'vendor/autoload.php';
+
 use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Faker;
+
+
+
 
 
 
@@ -19,13 +25,18 @@ class UserController
     public static function index()
     {
         echo ("<br>Bienvenue chez les users bb<br>");
+        $faker = Faker\Factory::create();
+        // var_dump($faker);
+
     }
 
     public static function create_user()
     {
         echo ("<br>Create chez les users bb<br>");
 
-        $new_user = new User(rand(), $faker->name(), $faker->name(), rand());
+        $faker = Faker\Factory::create();
+        $new_user = new User(rand(), $faker->firstName(), $faker->lastName(), rand());
+        // $new_user = new User(rand(), rand(), rand(), rand());
         $entityManager = self::getEM();
         $entityManager->persist($new_user);
         $entityManager->flush();
