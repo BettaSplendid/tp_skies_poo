@@ -11,6 +11,10 @@ use Routeur\Routeur;
 require_once('Routeur/router.php');;
 require_once('vendor/autoload.php');
 
+
+$faker = Faker\Factory::create();
+
+
 // print_r($_GET);
 
 

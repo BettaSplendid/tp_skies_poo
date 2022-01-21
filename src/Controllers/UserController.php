@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
+
+
 
 class UserController
 {
@@ -23,7 +24,8 @@ class UserController
     public static function create_user()
     {
         echo ("<br>Create chez les users bb<br>");
-        $new_user = new User(rand(), rand(), rand(), rand());
+
+        $new_user = new User(rand(), $faker->name(), $faker->name(), rand());
         $entityManager = self::getEM();
         $entityManager->persist($new_user);
         $entityManager->flush();

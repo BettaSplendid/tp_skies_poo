@@ -42,6 +42,10 @@ class ComposerStaticInit3aef2be43af0a4976c026112c3b73a89
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'D' => 
         array (
             'Doctrine\\Persistence\\' => 21,
@@ -130,6 +134,10 @@ class ComposerStaticInit3aef2be43af0a4976c026112c3b73a89
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
         ),
         'Doctrine\\Persistence\\' => 
         array (
