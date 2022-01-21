@@ -29,6 +29,7 @@ $routeur->add_une_route_bb_get('/', 'App\Controllers\AppController@index');
 
 $routeur->add_une_route_bb_get('/user', 'App\Controllers\UserController@index');
 $routeur->add_une_route_bb_get('/createuser', 'App\Controllers\UserController@create_user');
+$routeur->add_une_route_bb_get('/displayuser', 'App\Controllers\UserController@display_user');
 
 
 $routeur->run();

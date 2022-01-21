@@ -29,9 +29,10 @@ class UserController
         $entityManager->flush();
     }
 
-    public static function display_user()
+    public static function display_user($target_id)
     {
         $le_reposito = new EntityRepository(self::getEM(), new ClassMetadata("App\Entity\User"));
+
     }
 
 
