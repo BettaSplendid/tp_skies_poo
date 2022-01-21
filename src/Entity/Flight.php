@@ -58,13 +58,13 @@ final class Flight
 
     /**
      * @ORM\ManyToOne(targetEntity="Airport")
-     * @ORM\JoinColumn(name="departure_airport_id", referencedColumnName="airport_id")
+     * @ORM\JoinColumn(name="departure_airport_id", referencedColumnName="airport_id",onDelete="SET NULL")
      */
     private Airport $departure_airport_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Airport")
-     * @ORM\JoinColumn(name="destination_airport_id", referencedColumnName="airport_id")
+     * @ORM\JoinColumn(name="destination_airport_id", referencedColumnName="airport_id",onDelete="SET NULL")
      */
     private Airport $destination_airport_id;
 

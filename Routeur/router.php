@@ -22,12 +22,18 @@ final class Routeur
         $this->url = trim($url, '/');
     }
 
-    public function add_une_route_bb_get($chemin, $action)
+    public function get($chemin, $action)
     {
         $this->listes_des_routes['GET'][] = new Route($chemin, $action);
         // $this->Route[]
 
     }
+
+    public function post(string $chemin, string $action)
+    {
+        $this->listes_des_routes["POST"][] = new Route($chemin, $action);
+    }
+
 
 
     public function run()
@@ -39,8 +45,6 @@ final class Routeur
 
         return header('HTTP/1.0 404 Pas trouvé');
     }
-
-
 }
 
 class Route
@@ -78,8 +82,7 @@ class Route
         $controller = new $params[0]();
         $methode = $params[1];
 
-        return isset($this->matches[1]) ? $controller->$methode($this->matches[1]) : $controller->$methode(); 
-
+        return isset($this->matches[1]) ? $controller->$methode($this->matches[1]) : $controller->$methode();
     }
 
     /**

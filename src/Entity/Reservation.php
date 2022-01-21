@@ -68,7 +68,7 @@ final class Reservation
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id",onDelete="SET NULL",onDelete="SET NULL")
      */
     private User $user_id;
 

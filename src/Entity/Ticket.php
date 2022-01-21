@@ -54,7 +54,7 @@ final class Ticket
 
     /**
      * @ORM\ManyToOne(targetEntity="Reservation")
-     * @ORM\JoinColumn(name="id_reservation", referencedColumnName="id_reservation")
+     * @ORM\JoinColumn(name="id_reservation", referencedColumnName="id_reservation",onDelete="SET NULL")
      */
     private Reservation $id;
 

@@ -23,13 +23,13 @@ final class Flight_passenger
 
     /**
      * @ORM\ManyToOne(targetEntity="Ticket")
-     * @ORM\JoinColumn(name="ticket_id", referencedColumnName="ticket_id")
+     * @ORM\JoinColumn(name="ticket_id", referencedColumnName="ticket_id",onDelete="SET NULL")
      */
     private Ticket $ticket_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Flight")
-     * @ORM\JoinColumn(name="flight_id", referencedColumnName="flight_id")
+     * @ORM\JoinColumn(name="flight_id", referencedColumnName="flight_id",onDelete="SET NULL")
      */
     private Flight $flight_id;
 

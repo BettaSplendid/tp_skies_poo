@@ -25,14 +25,27 @@ $routeur = new Routeur($_GET['url']);
 
 
 
-$routeur->add_une_route_bb_get('/', 'App\Controllers\AppController@index');
+$routeur->get('/', 'App\Controllers\AppController@index');
 
-$routeur->add_une_route_bb_get('/user', 'App\Controllers\UserController@index');
-$routeur->add_une_route_bb_get('/createuser', 'App\Controllers\UserController@create_user');
-$routeur->add_une_route_bb_get('/displayuser', 'App\Controllers\UserController@display_user');
+
+
+//user
+$routeur->get('/user', 'App\Controllers\UserController@index');
+$routeur->post('/createuser', 'App\Controllers\UserController@create_user');
+$routeur->get('/displayuser:user', 'App\Controllers\UserController@display_user');
+$routeur->get('/modifyuser:user', 'App\Controllers\UserController@modify_user');
+$routeur->get('/deleteuser:user', 'App\Controllers\UserController@delete_user');
+
+
+
 
 
 $routeur->run();
+
+
+
+
+
 
 // $routeur->get('/', 'App\Controllers\AppController@index');
 
@@ -46,6 +59,6 @@ $routeur->run();
 // $routeurRouteur = new Routeur($current_url);
 
 
-// $routeurRouteur->add_une_route_bb_get($test);
+// $routeurRouteur->get($test);
 
 // var_dump($routeurRouteur);
