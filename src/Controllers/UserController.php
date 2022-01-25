@@ -12,10 +12,11 @@ use Faker;
 
 
 
-
 class UserController
 {
 
+   public array $LESINFOS = [];
+    
     public static function getEM()
     {
         require "bootstrap.php";
@@ -25,8 +26,16 @@ class UserController
     public static function index()
     {
         echo ("<br>Bienvenue chez les users bb<br>");
-        $faker = Faker\Factory::create();
-        // var_dump($faker);
+        // {
+        //     try {
+        //         $entityManager = self::getEM();
+        //         $visitorRepository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\User"));
+        //         print(implode($visitorRepository->findAll()));
+    
+        //     } catch (\Throwable $e) {
+        //         exit("Une erreur est survenu lors de la récupération des user.");
+        //     }
+        // }
 
     }
 
@@ -42,9 +51,11 @@ class UserController
         $entityManager->flush();
     }
 
-    public static function display_user($lapin)
+    public static function display_user($lapin = null)
     {
         echo ("<br>Display chez les users bb<br>");
+        if($lapin == null)
+            echo("No user argument");
         var_dump($lapin);
         $lapin = preg_replace('/[^A-Za-z0-9\-]/', '', $lapin);
         $entityManager = self::getEM();
@@ -55,8 +66,17 @@ class UserController
 
 
 
-    public static function update_user()
+    public static function update_user($lapin, $new_fname, $new_lname)
     {
+        echo ("<br>Modify chez les users bb<br>");
+        $entityManager = self::getEM();
+        $le_reposito = new EntityRepository($entityManager, new ClassMetadata("App\Entity\User"));
+        $le_user = $le_reposito->find((int)$lapin);
+        $le_user->setFirstname($new_fname);
+        $le_user->setLastname($new_lname);
+        $entityManager->persist($le_user);
+        $entityManager->flush();
+    
     }
 
     public static function delete_user($lievre)

@@ -21,9 +21,10 @@ $routeur->get('/', 'App\Controllers\AppController@index');
 
 //user
 $routeur->get('/user', 'App\Controllers\UserController@index');
-$routeur->get('/createuser', 'App\Controllers\UserController@create_user');
+$routeur->post('/createuser', 'App\Controllers\UserController@create_user');
+$routeur->get('/displayuser', 'App\Controllers\UserController@display_user');
 $routeur->get('/displayuser:user', 'App\Controllers\UserController@display_user');
-$routeur->get('/modifyuser:user', 'App\Controllers\UserController@modify_user');
+$routeur->get('/updateuser:user', 'App\Controllers\UserController@update_user');
 $routeur->get('/deleteuser:user', 'App\Controllers\UserController@delete_user');
 
 
