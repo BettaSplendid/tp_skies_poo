@@ -21,19 +21,22 @@ $routeur->get('/', 'App\Controllers\AppController@index');
 
 //user
 $routeur->get('/user', 'App\Controllers\UserController@index');
+$routeur->get('/createuser', 'App\Controllers\UserController@show_form');
 $routeur->post('/createuser', 'App\Controllers\UserController@create_user');
 $routeur->get('/displayuser', 'App\Controllers\UserController@display_user');
 $routeur->get('/displayuser:user', 'App\Controllers\UserController@display_user');
 $routeur->get('/updateuser:user', 'App\Controllers\UserController@update_user');
 $routeur->get('/deleteuser:user', 'App\Controllers\UserController@delete_user');
 
+//Employee
+$routeur->get('/employee', 'App\Controllers\EmployeeController@index');
+$routeur->get('/createemployee', 'App\Controllers\EmployeeController@show_form');
+$routeur->post('/createemployee', 'App\Controllers\EmployeeController@create_employee');
+
+
 
 
 $routeur->run();
-
-
-
-
 
 
 // $routeur->get('/', 'App\Controllers\AppController@index');

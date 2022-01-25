@@ -34,7 +34,7 @@ class User
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getid()
     {
         return $this->user_id;
@@ -44,7 +44,7 @@ class User
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setid($user_id)
     {
         $this->user_id = $user_id;
@@ -65,7 +65,7 @@ class User
 
     /**
      * Get the value of firstname
-     */ 
+     */
     public function getFirstname()
     {
         return $this->firstname;
@@ -75,7 +75,7 @@ class User
      * Set the value of firstname
      *
      * @return  self
-     */ 
+     */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
@@ -85,7 +85,7 @@ class User
 
     /**
      * Get the value of lastname
-     */ 
+     */
     public function getLastname()
     {
         return $this->lastname;
@@ -95,7 +95,7 @@ class User
      * Set the value of lastname
      *
      * @return  self
-     */ 
+     */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;

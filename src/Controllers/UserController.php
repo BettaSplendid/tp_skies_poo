@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 require_once 'vendor/autoload.php';
 
 use App\Entity\User;
@@ -15,8 +16,8 @@ use Faker;
 class UserController
 {
 
-   public array $LESINFOS = [];
-    
+    public array $LESINFOS = ['firstname', 'lastname'];
+
     public static function getEM()
     {
         require "bootstrap.php";
@@ -31,7 +32,7 @@ class UserController
         //         $entityManager = self::getEM();
         //         $visitorRepository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\User"));
         //         print(implode($visitorRepository->findAll()));
-    
+
         //     } catch (\Throwable $e) {
         //         exit("Une erreur est survenu lors de la récupération des user.");
         //     }
@@ -39,12 +40,21 @@ class UserController
 
     }
 
-    public static function create_user()
+    public static function show_form()
+    {
+        include("src/vues/AddUser.php");
+    }
+
+    public static function create_user(array $LESINFOS = null)
     {
         echo ("<br>Create chez les users bb<br>");
+        $LESINFOS['firstname'] = $_POST['firstname'];
+        $LESINFOS['lastname'] = $_POST['lastname'];
+        var_dump($LESINFOS);
+        echo ("balbla");
 
         $faker = Faker\Factory::create();
-        $new_user = new User(rand(), $faker->firstName(), $faker->lastName(), rand());
+        $new_user = new User(rand(), $LESINFOS['firstname'], $LESINFOS['lastname'], rand());
         // $new_user = new User(rand(), rand(), rand(), rand());
         $entityManager = self::getEM();
         $entityManager->persist($new_user);
@@ -54,8 +64,8 @@ class UserController
     public static function display_user($lapin = null)
     {
         echo ("<br>Display chez les users bb<br>");
-        if($lapin == null)
-            echo("No user argument");
+        if ($lapin == null)
+            echo ("No user argument");
         var_dump($lapin);
         $lapin = preg_replace('/[^A-Za-z0-9\-]/', '', $lapin);
         $entityManager = self::getEM();
@@ -76,7 +86,6 @@ class UserController
         $le_user->setLastname($new_lname);
         $entityManager->persist($le_user);
         $entityManager->flush();
-    
     }
 
     public static function delete_user($lievre)
