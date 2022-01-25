@@ -32,6 +32,7 @@ $routeur->get('/deleteuser:user', 'App\Controllers\UserController@delete_user');
 $routeur->get('/employee', 'App\Controllers\EmployeeController@index');
 $routeur->get('/createemployee', 'App\Controllers\EmployeeController@show_form');
 $routeur->post('/createemployee', 'App\Controllers\EmployeeController@create_employee');
+$routeur->get('/createrandom', 'App\Controllers\EmployeeController@create_random_employee');
 
 
 
