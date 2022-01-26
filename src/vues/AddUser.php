@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form method="post">
+    <form method="POST">
         <input type="text" name="firstname" id="firstname" placeholder="firstname">
         <input type="text" name="lastname" id="lastname" placeholder="lastname">
         <input type="submit" name="send" value="envoyer">

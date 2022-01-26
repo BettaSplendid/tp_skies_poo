@@ -20,12 +20,12 @@ final class Airport
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $airport_id;
+    public int $airport_id;
 
     /**
      * @ORM\Column(type="string")
      */
-    private string $airport_name;
+    public string $airport_name;
 
     /**
      * Get the value of airport_id

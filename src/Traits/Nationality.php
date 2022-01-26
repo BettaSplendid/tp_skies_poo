@@ -12,7 +12,7 @@ trait Nationality
     /**
      * @ORM\Column(type="string")
      */
-    private string $country;
+    public string $country;
 
     /**
      * Get the value of country

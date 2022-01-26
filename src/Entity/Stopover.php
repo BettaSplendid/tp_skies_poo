@@ -19,5 +19,5 @@ final class Stopover
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $flight_id;
+    public int $flight_id;
 }

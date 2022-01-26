@@ -19,19 +19,19 @@ final class Flight_passenger
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $flight_passenger_id;
+    public int $flight_passenger_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Ticket")
      * @ORM\JoinColumn(name="ticket_id", referencedColumnName="ticket_id",onDelete="SET NULL")
      */
-    private Ticket $ticket_id;
+    public Ticket $ticket_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Flight")
      * @ORM\JoinColumn(name="flight_id", referencedColumnName="flight_id",onDelete="SET NULL")
      */
-    private Flight $flight_id;
+    public Flight $flight_id;
 
     public function __construct($flight_id)
     {

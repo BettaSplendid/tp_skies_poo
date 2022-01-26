@@ -19,7 +19,7 @@ final class Reservation
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      */
-    private int $id_reservation;
+    public int $id_reservation;
 
     /**
      * Get the value of reservation_number
@@ -44,7 +44,7 @@ final class Reservation
     /**
      * @ORM\Column(type="datetime")
      */
-    private \DateTime $Reservation_date;
+    public \DateTime $Reservation_date;
 
     /**
      * Get the value of Reservation_date
@@ -70,7 +70,7 @@ final class Reservation
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id",onDelete="SET NULL",onDelete="SET NULL")
      */
-    private User $user_id;
+    public User $user_id;
 
 
     public function __construct(int $id_reservation, \datetime $Reservation_date, User $user_id)

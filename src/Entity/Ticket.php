@@ -19,17 +19,17 @@ final class Ticket
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $ticket_id;
+    public int $ticket_id;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private int $passport_id;
+    public int $passport_id;
 
     /**
      * @ORM\Column(type="float")
      */
-    private float $price;
+    public float $price;
 
     /**
      * Get the value of ticket_id
@@ -56,7 +56,7 @@ final class Ticket
      * @ORM\ManyToOne(targetEntity="Reservation")
      * @ORM\JoinColumn(name="id_reservation", referencedColumnName="id_reservation",onDelete="SET NULL")
      */
-    private Reservation $id;
+    public Reservation $id;
 
 
     public function __construct(int $ticket_id, int $passport_id, Reservation $id_reservation )

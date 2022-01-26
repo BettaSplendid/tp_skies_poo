@@ -19,19 +19,19 @@ final class Flight
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $flight_id;
+    public int $flight_id;
 
     /**
      * 
      * @ORM\Column(type ="datetime")
      */
-    private \DateTime $takeoff_time;
+    public \DateTime $takeoff_time;
 
     /**
      * 
      * @ORM\Column(type ="datetime")
      */
-    private \DateTime $landing_time;
+    public \DateTime $landing_time;
 
 
 
@@ -60,13 +60,13 @@ final class Flight
      * @ORM\ManyToOne(targetEntity="Airport")
      * @ORM\JoinColumn(name="departure_airport_id", referencedColumnName="airport_id",onDelete="SET NULL")
      */
-    private Airport $departure_airport_id;
+    public Airport $departure_airport_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Airport")
      * @ORM\JoinColumn(name="destination_airport_id", referencedColumnName="airport_id",onDelete="SET NULL")
      */
-    private Airport $destination_airport_id;
+    public Airport $destination_airport_id;
 
     public function __construct(int $flight_id, Airport $departure_airport_id, Airport $destination_airport_id, \DateTime $takeoff_time, \DateTime $landing_time, bool $bookable)
     {
@@ -81,7 +81,7 @@ final class Flight
     /**
      * @ORM\Column(type="boolean")
      */
-    private bool $bookable;
+    public bool $bookable;
 
 
     /**

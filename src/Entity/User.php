@@ -8,6 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"Employee" = "Employee"})
  */
 
 
@@ -19,17 +22,17 @@ class User
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $user_id;
+    public int $user_id;
 
     /**
      * @ORM\Column(type="string")
      */
-    private string $firstname;
+    public string $firstname;
 
     /**
      * @ORM\Column(type="string")
      */
-    private string $lastname;
+    public string $lastname;
 
 
     /**

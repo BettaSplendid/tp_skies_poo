@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Entity\Airport;
-use App\Entity\Flight;
-use App\Entity\Flight_passenger;
-use App\Entity\Reservation;
-use App\Entity\Ticket;
+require_once 'vendor/autoload.php';
+
 use App\Entity\User;
-use \DateTime;
-use Doctrine\ORM\EntityManager;
+use App\Entity\Employee;
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\EntityRepository;
+
 
 class AppController
 {
+
     public static function getEM()
     {
         require "bootstrap.php";
@@ -22,41 +22,29 @@ class AppController
     {
 
         echo "<br>App Controller<br>";
-        // echo "<br>blablaba<br><br>";
+    }
 
-        // $entityManager = self::getEM();
+    public static function show_login_form()
+    {
+        include("src/vues/AddUser.php");
+    }
 
-        // $papy = new User(5655656, "Papy", "Papou", "France");
+    public static function login_process()
+    {
+        var_dump($_POST);
 
-        // $paris_brest = new Reservation(595566, new DateTime(), $papy);
+        if (empty($_POST)) {
+            echo ("<br>Données pas recues<br>");
+            return;
+        }
+        echo ("<br>Données recues<br>");
 
-        // $ticket_brest = new Ticket(595656, 559565, $paris_brest);
+        $entityManager = self::getEM();
+        $id = 2;
+        $le_reposito = new EntityRepository($entityManager, new ClassMetadata("App\Entity\Employee"));
+        $product = $le_reposito->find($id);
+        var_dump($product);
 
-        // $paris_airport = new Airport(45455, "Ile de Frabce", "Paris cdg");
-
-        // $brest_airport = new Airport(56656, "Bregange", "Paspasparis");
-
-        // $vol_paris_brest = new Flight(58972, $paris_airport, $brest_airport, (new DateTime()), (new DateTime()), true);
-
-        // $entityManager->persist($vol_paris_brest);
-        // $entityManager->persist($paris_airport);
-        // $entityManager->persist($brest_airport);
-        // $entityManager->persist($paris_brest);
-        // $entityManager->persist($ticket_brest);
-        // $entityManager->persist($papy);
-        // $entityManager->flush();
-
-        // var_dump($papy);
-        // echo "<br><br>blablaba<br><br>";
-        // var_dump($paris_brest);
-        // echo "<br><br>blablaba<br><br>";
-        // var_dump($ticket_brest);
-        // echo "<br><br>blablaba<br><br>";
-        // var_dump($paris_airport);
-        // echo "<br><br>blablaba<br><br>";
-        // var_dump($brest_airport);
-        // echo "<br><br>blablaba<br><br>";
-        // var_dump($vol_paris_brest);
-        // echo "<br><br>blablaba<br><br>";
     }
 }
+

@@ -5,6 +5,7 @@ namespace App\Controllers;
 require_once 'vendor/autoload.php';
 
 use App\Entity\User;
+use App\Entity\Employee;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Faker;
@@ -27,23 +28,13 @@ class UserController
     public static function index()
     {
         echo ("<br>Bienvenue chez les users bb<br>");
-        // {
-        //     try {
-        //         $entityManager = self::getEM();
-        //         $visitorRepository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\User"));
-        //         print(implode($visitorRepository->findAll()));
-
-        //     } catch (\Throwable $e) {
-        //         exit("Une erreur est survenu lors de la récupération des user.");
-        //     }
-        // }
-
     }
 
     public static function show_form()
     {
         include("src/vues/AddUser.php");
     }
+
 
     public static function create_user(array $LESINFOS = null)
     {
